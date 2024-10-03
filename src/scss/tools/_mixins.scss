@@ -1,0 +1,18 @@
+// Breakpoint mixin
+// @param {String} $direction - 'min' or 'max'
+// @param {String} $key - Breakpoint key
+// @return {Mixin}
+@mixin breakpoint($key, $direction: min) {
+  $breakpoint: map-get($breakpoints, $key);
+  $media: if($direction == max, ($breakpoint - 1), $breakpoint);
+
+  @if not $breakpoint {
+    @warn 'El Breakpoint no esta definido';
+  }
+
+  @else {
+    @media (#{$direction}-width: $media) {
+      @content;
+    }
+  }
+}

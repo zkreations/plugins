@@ -1,0 +1,54 @@
+// Remove Google Translate branding
+body > .skiptranslate,
+.goog-te-gadget span { display: none !important }
+
+body[style*="top"] {
+  top: auto !important;
+
+  font {
+    background: none !important;
+    box-shadow: none !important;
+  }
+}
+
+.goog-te-gadget {
+  color: transparent !important;
+  font-size: 0px !important;
+}
+
+.gtranslate {
+  --gt-padding: .75rem;
+  --gt-font: "Roboto", sans-serif;
+  --gt-svg-size: 20px;
+  font-family: var(--translate-font);
+
+  select {
+    font-family: var(--gt-font);
+    padding: var(--gt-padding);
+    padding-right: calc(var(--gt-padding) + var(--gt-svg-size) + 0.5rem);
+    appearance: none;
+    font-size: var(--gt-font-size, 1rem);
+    border: 1px solid  var(--gt-border-color, #d4d4d4);
+    color: var(--gt-color, #171717);
+    border-radius: 0.5rem;
+    background-image: var(--gt-svg, url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" class="i i-language" viewBox="0 0 24 24" fill="none" stroke="%23a3a3a3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 5h14M9 2v3m4 0q-2 8-9 11m2-7q2 4 6 6m1 7 5-11 5 11m-1.4-3h-7.2"/></svg>'));
+    background-color: var(--gt-bg, #fff);
+    background-size: var(--gt-svg-size);
+    background-position: center right var(--gt-padding);
+    background-repeat: no-repeat;
+    cursor: pointer;
+    transition: border-color .3s, box-shadow .3s;
+    width: 100%;
+    margin: 0px !important;
+
+    &:focus,
+    &:hover {
+      border-color: var(--gt-accent, #14b8a6);
+    }
+
+    &:focus {
+      outline: 0;
+      box-shadow: 0 0 0 3px var(--gt-accent-focus, rgb(20 184 166 / 25%));
+    }
+  }
+}

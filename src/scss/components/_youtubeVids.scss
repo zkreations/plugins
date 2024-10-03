@@ -1,0 +1,31 @@
+.ytube {
+  display: grid;
+  gap: var(--yt-gap, 1rem);
+  grid-template-columns: repeat(auto-fill,minmax(min(100%,var(--yt-min-width,280px)),1fr));
+
+  &:not(&-started) {
+    display: none;
+  }
+
+  &-item {
+    @extend %aspectRatio;
+
+    background-color: black;
+    box-shadow: 0 1px 4px 0 rgba(0,0,0,.2);
+
+    * {
+      @extend %imageCover;
+    }
+
+    &:hover {
+      --icon-is: 1.25;
+    }
+  }
+
+  &-play {
+    stroke-width: 3;
+    stroke: var(--yt-icon-color, #fff);
+    width: var(--yt-icon-size, 3rem);
+    @extend %iconStyles;
+  }
+}

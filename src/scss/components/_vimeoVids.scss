@@ -1,0 +1,32 @@
+.vimeo {
+  display: grid;
+  gap: var(--vm-gap, 1rem);
+  grid-template-columns: repeat(auto-fill,minmax(min(100%,var(--vm-min-width,280px)),1fr));
+
+  &:not(&-started) {
+    display: none;
+  }
+
+  &-item {
+    @extend %aspectRatio;
+
+    background-color: black;
+    border-radius: .5rem;
+
+    * {
+      @extend %imageCover;
+    }
+
+    &:hover {
+      --icon-is: 1.25;
+    }
+  }
+
+  &-play {
+    stroke-width: 2;
+    stroke: var(--vm-icon-color, #fff);
+    width: var(--vm-icon-size, 4rem);
+    transform: scale(var(--vm-is, 1));
+    @extend %iconStyles;
+  }
+}
